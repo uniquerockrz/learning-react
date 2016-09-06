@@ -10,8 +10,16 @@
 <body>
     <div id="mount-point"></div>
     <script type="text/babel">
+        var HeadingComponent = React.createClass({
+            render: function(){
+                return (
+                    <h1>Hello, World</h1>
+                )
+            }
+        });
+
         ReactDOM.render(
-            <h1>Hello, World</h1>,
+            <HeadingComponent />,
             document.getElementById('mount-point')
         );
     </script>
