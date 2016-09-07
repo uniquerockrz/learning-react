@@ -14,12 +14,23 @@
             render: function(){
                 return (
                     <h1>Hello, World</h1>
-                )
+                );
             }
         });
 
+        var NameComponent = React.createClass({
+            render: function(){
+                return(
+                    <h3>Welcome, {this.props.name}</h3>
+                );
+            }
+        })
+
         ReactDOM.render(
-            <HeadingComponent />,
+            <div>
+                <HeadingComponent />
+                <NameComponent name='Saurav'/>
+            </div>,
             document.getElementById('mount-point')
         );
     </script>
