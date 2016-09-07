@@ -23,13 +23,40 @@
                 return(
                     <h3>Welcome, {this.props.name}</h3>
                 );
+            },
+            componentWillMount: function(){
+                console.log('Start Rendering');
+            },
+            componentDidMount: function(){
+                console.log('Finished Rendering');
             }
-        })
+        });
+
+        var CounterComponent = React.createClass({
+            getInitialState: function(){
+                return {
+                    count: 5
+                }
+            },
+            incrementCount: function(){
+                this.setState({
+                    count: ++this.state.count
+                });
+            },
+            render: function(){
+                return(
+                    <div>
+                        <em>Count: </em> {this.state.count} &nbsp;
+                        <button type="button" onClick={this.incrementCount}>Increment</button>
+                    </div>
+                );
+            }
+        });
 
         ReactDOM.render(
             <div>
                 <HeadingComponent />
-                <NameComponent name='Saurav'/>
+                <NameComponent name='Saurav'/> <CounterComponent />
             </div>,
             document.getElementById('mount-point')
         );
